@@ -8,8 +8,8 @@ Inspired by [Primetime](https://www.youtube.com/@ThePrimeTimeagen)
 git clone --depth 1 https://github.com/coopersmall/nvim.git\
 ~/.config/
 ```
-**Install Packer**
-[Go here](https://github.com/wbthomason/packer.nvim
+**Install Packer**/n
+[Go here](https://github.com/wbthomason/packer.nvim)
 
 **Install Pluging**
 ```
