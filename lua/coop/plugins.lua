@@ -10,7 +10,11 @@ return require('packer').startup(function(use)
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+	  requires = { {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-live-grep-args.nvim' },
+      },
+      config = function()
+          require("telescope").load_extension("live_grep_args")
+      end
   }
 
   use({ 'rose-pine/neovim', as = 'rose-pine' })
@@ -27,6 +31,7 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
 
   use('tpope/vim-fugitive')
+
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v2.x',
@@ -45,6 +50,9 @@ return require('packer').startup(function(use)
 	  {'hrsh7th/nvim-cmp'},     -- Required
 	  {'hrsh7th/cmp-nvim-lsp'}, -- Required
 	  {'L3MON4D3/LuaSnip'},     -- Required   
-  }
+  },
 }
+
+use ('fatih/vim-go')
+
 end)
