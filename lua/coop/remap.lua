@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<C-o>", vim.cmd.Ex)
 
 vim.keymap.set("n", '<leader>pv', ':Ex<CR>')
 vim.keymap.set("n", '<leader>u', ':UndotreeShow<CR>')
@@ -37,6 +37,15 @@ vim.keymap.set('n', '<leader>j', "<cmd>lprev<CR>zz")
 
 
 vim.keymap.set('n', '<leader>s', ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-vim.keymap.set('n', '<leader>x', "<cmd>!chmod +x %<CR>", {silent = true})
+vim.keymap.set('n', '<leader>x', "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set('n', '<leader>cd', ":cd %:p:h<CR>:pwd<CR>")
+
+vim.keymap.set('v', '<C-i>', "<Esc>")
+vim.keymap.set('i', '<C-i>', "<Esc>")
+
+vim.keymap.set('n', '<C-q>', ":q!<CR>")
+vim.keymap.set('n', '<C-s>', ":w<CR>")
+vim.keymap.set('n', '<C-x>', ":x<CR>")
+
+vim.keymap.set('n', '<C-w>', ":vert sb N<CR>")

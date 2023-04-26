@@ -48,8 +48,8 @@ cmp.setup({
         ['<Tab>'] = cmp_action.tab_complete(),
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ['<S-l>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<S-j>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
         ['<C-Space>'] = cmp.mapping.complete(),
     },
     sources = {
