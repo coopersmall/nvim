@@ -10,4 +10,4 @@ require("nvim-tree").setup({
     }
 })
 
-vim.keymap.set('n', '<C-Space>', ":NvimTreeFindFileToggle<CR>")
+vim.keymap.set('n', '<leader><Tab>', ":NvimTreeFindFileToggle<CR>")

@@ -48,10 +48,10 @@ vim.keymap.set('i', '<C-i>', "<Esc>")
 vim.keymap.set('n', '<C-q>', "<cmd>q!<CR>")
 vim.keymap.set('n', '<C-s>', "<cmd>w<CR>")
 
-vim.keymap.set('n', '<C-w>', "<cmd>vert sb N<CR>")
+vim.keymap.set('n', '<leader>cr', "<cmd>lua Colors()<CR>")
 
 vim.keymap.set('n', '<C-c>', "<cmd>bdelete<CR>")
 vim.keymap.set('n', '<C-n>', "<cmd>enew<CR>")
 
-vim.keymap.set('n', '<Tab>', "<cmd>bnext<CR>")
-vim.keymap.set('n', '<S-Tab>', "<cmd>bprev<CR>")
+vim.keymap.set('n', '<Tab>', "<cmd>bprev<CR>")
+vim.keymap.set('n', '<S-Tab>', "<cmd>bnext<CR>")
