@@ -10,4 +10,4 @@ require("nvim-tree").setup({
     }
 })
 
-vim.keymap.set('n', '<leader><Tab>', ":NvimTreeFindFileToggle<CR>")
+vim.keymap.set('n', '<leader><Tab>', ":NvimTreeFindFileToggle<CR><cmd>! shell(echo 'Folder Toggle'<CR>)")
