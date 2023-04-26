@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<C-o>", vim.cmd.Ex)
+vim.keymap.set("n", "<C-p>", "<cmd>visual<CR>")
 
 vim.keymap.set("n", '<leader>pv', ':Ex<CR>')
 vim.keymap.set("n", '<leader>u', ':UndotreeShow<CR>')
@@ -44,8 +45,13 @@ vim.keymap.set('n', '<leader>cd', ":cd %:p:h<CR>:pwd<CR>")
 vim.keymap.set('v', '<C-i>', "<Esc>")
 vim.keymap.set('i', '<C-i>', "<Esc>")
 
-vim.keymap.set('n', '<C-q>', ":q!<CR>")
-vim.keymap.set('n', '<C-s>', ":w<CR>")
-vim.keymap.set('n', '<C-x>', ":x<CR>")
+vim.keymap.set('n', '<C-q>', "<cmd>q!<CR>")
+vim.keymap.set('n', '<C-s>', "<cmd>w<CR>")
 
-vim.keymap.set('n', '<C-w>', ":vert sb N<CR>")
+vim.keymap.set('n', '<C-w>', "<cmd>vert sb N<CR>")
+
+vim.keymap.set('n', '<C-c>', "<cmd>bdelete<CR>")
+vim.keymap.set('n', '<C-n>', "<cmd>enew<CR>")
+
+vim.keymap.set('n', '<Tab>', "<cmd>bnext<CR>")
+vim.keymap.set('n', '<S-Tab>', "<cmd>bprev<CR>")

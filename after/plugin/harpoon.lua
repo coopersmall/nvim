@@ -4,8 +4,8 @@ local ui = require("harpoon.ui")
 vim.keymap.set('n', '<leader>q', mark.add_file)
 vim.keymap.set('n', '<leader>e', ui.toggle_quick_menu)
 
-vim.keymap.set('n', '<leader>w', function() ui.nav_prev() end)
-vim.keymap.set('n', '<leader>r', function() ui.nav_next() end)
+vim.keymap.set('n', '<C-r>', function() ui.nav_prev() end)
+vim.keymap.set('n', '<C-t>', function() ui.nav_next() end)
 
 vim.keymap.set('n', '<C-h>', function() ui.nav.file(1) end)
 vim.keymap.set('n', '<C-t>', function() ui.nav.file(2) end)
