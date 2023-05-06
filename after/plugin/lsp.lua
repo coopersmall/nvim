@@ -45,7 +45,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
     mapping = {
-        ['<Tab>'] = cmp_action.tab_complete(),
+        ['<leader><Tab>'] = cmp_action.tab_complete(),
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),

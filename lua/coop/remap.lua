@@ -53,7 +53,10 @@ vim.keymap.set('n', '<leader>cr', "<cmd>lua Colors()<CR>")
 vim.keymap.set('n', '<C-c>', "<cmd>bdelete<CR>")
 vim.keymap.set('n', '<C-n>', "<cmd>enew<CR>")
 
-vim.keymap.set('n', '<Tab>', "<cmd>bprev<CR>")
+vim.keymap.set('n', '<C-Tab>', "<cmd>bprev<CR>")
 vim.keymap.set('n', '<S-Tab>', "<cmd>bnext<CR>")
 
 vim.keymap.set('n', '<leader>cr', "<cmd>lua Colors()<CR>")
+
+vim.keymap.set('n', '<leader>o', "<C-o>")
+vim.keymap.set('n', '<leader>i', "<C-i>")

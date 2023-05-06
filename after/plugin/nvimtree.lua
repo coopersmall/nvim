@@ -10,4 +10,17 @@ require("nvim-tree").setup({
     }
 })
 
-vim.keymap.set('n', '<leader><Tab>', ":NvimTreeFindFileToggle<CR><cmd>! shell(echo 'Folder Toggle'<CR>)")
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+    callback = function(args)
+        if vim.fn.expand "%:p" ~= "" then
+            vim.api.nvim_del_autocmd(args.id)
+            vim.cmd "noautocmd NvimTreeFindFile"
+            vim.cmd "noautocmd NvimTreeOpen"
+            vim.schedule(function()
+                vim.cmd "wincmd p"
+            end)
+        end
+    end,
+})
+
+vim.keymap.set('n', '<leader>`', ":NvimTreeFindFile<CR>")

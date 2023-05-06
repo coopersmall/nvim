@@ -57,14 +57,19 @@ return require('packer').startup(function(use)
     use('fatih/vim-go')
 
     use('rust-lang/rust.vim')
+
     use('nvim-tree/nvim-tree.lua')
 
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
     use('github/copilot.vim')
+
     use('ggandor/leap.nvim')
+
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 end)
