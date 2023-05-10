@@ -60,3 +60,5 @@ vim.keymap.set('n', '<leader>cr', "<cmd>lua Colors()<CR>")
 
 vim.keymap.set('n', '<leader>o', "<C-o>")
 vim.keymap.set('n', '<leader>i', "<C-i>")
+
+vim.keymap.set('n', '<C-q>', "<cmd>qa<CR>")

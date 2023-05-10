@@ -72,4 +72,16 @@ return require('packer').startup(function(use)
     }
 
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+    use 'famiu/bufdelete.nvim'
+
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {
+            { 'nvim-telescope/telescope.nvim' },
+        },
+        config = function()
+            require('neoclip').setup()
+        end,
+    }
 end)
