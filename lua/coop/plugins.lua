@@ -58,8 +58,6 @@ return require('packer').startup(function(use)
 
     use('rust-lang/rust.vim')
 
-    use('nvim-tree/nvim-tree.lua')
-
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
     use('github/copilot.vim')
@@ -83,5 +81,12 @@ return require('packer').startup(function(use)
         config = function()
             require('neoclip').setup()
         end,
+    }
+
+    use {
+        'tanvirtin/vgit.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
     }
 end)
