@@ -11,7 +11,7 @@ vim.keymap.set("n", '<leader>u', ':UndotreeShow<CR>')
 vim.keymap.set("n", 'Y', 'yg$')
 vim.keymap.set("n", 'C-j', 'mxj`z')
 vim.keymap.set("n", 'J', '<C-d>zz')
-vim.keymap.set("n", 'K', '<C-u>zz')
+vim.keymap.set("n", 'K', '<C-u>')
 vim.keymap.set("n", 'n', 'nzzzv')
 vim.keymap.set("n", 'N', 'Nzzzv')
 
