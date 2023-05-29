@@ -17,9 +17,9 @@ return require('packer').startup(function(use)
         end
     }
 
-    use('EdenEast/nightfox.nvim')
+    use('folke/tokyonight.nvim')
 
-    vim.cmd('colorscheme nightfox')
+    vim.cmd('colorscheme tokyonight-night')
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -62,7 +62,8 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        theme = 'tokyonight'
     }
 
     use 'famiu/bufdelete.nvim'
