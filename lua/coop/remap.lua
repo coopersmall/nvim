@@ -22,6 +22,7 @@ vim.keymap.set("n", '<leader>svwm', function()
     require('vim-with-me').StopVimWithMe()
 end)
 
+vim.keymap.set('n', 'p', "<leader>p")
 vim.keymap.set('x', '<leader>p', "\"_dP")
 
 vim.keymap.set('n', '<leader>y', "\"+y")
