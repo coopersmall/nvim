@@ -1,7 +1,20 @@
+pcall(require('telescope').load_extension, 'fzf')
+
 local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = '[ ] Find open buffers' })
+vim.keymap.set('n', '<leader><space>', function()
+    builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+    })
+end, { desc = { 'Fuzzy search current buffer' } })
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
-
+vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>fs', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 
 local telescope = require("telescope")

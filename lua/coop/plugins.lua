@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
         end
     }
 
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
     use('folke/tokyonight.nvim')
 
     vim.cmd('colorscheme tokyonight-night')

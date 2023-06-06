@@ -77,4 +77,6 @@ cmp.setup({
     }
 })
 
-vim.lsp.buf.hover()
+vim.diagnostic.config({
+    virtual_text = true
+})
