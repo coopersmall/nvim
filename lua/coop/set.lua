@@ -25,7 +25,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 300
-vim.opt.incsearch = false
 vim.opt.signcolumn = "yes"
 
 vim.g.mapleader = " "

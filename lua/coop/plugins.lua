@@ -60,13 +60,7 @@ return require('packer').startup(function(use)
 
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
-    use {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
-        config = function()
-            require("copilot_cmp").setup()
-        end
-    }
+    use { 'github/copilot.vim' }
 
     use {
         'nvim-lualine/lualine.nvim',
