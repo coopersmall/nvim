@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 vim.keymap.set("n", "<C-o>", vim.cmd.Ex)
 vim.keymap.set("n", "<C-p>", "<CMD>visual<CR>")
 
@@ -25,9 +26,10 @@ end)
 vim.keymap.set('n', 'p', "<leader>p")
 vim.keymap.set('x', '<leader>p', "\"_dP")
 
-vim.keymap.set('n', '<leader>y', "\"+y")
-vim.keymap.set('v', '<leader>y', "\"+y")
+vim.keymap.set('v', '<leader-y>', "\"+y")
 vim.keymap.set('n', '<leader>Y', "\"+Y")
+
+vim.keymap.set('n', '<C-c>', "<CMD>!pbcopy<CR>")
 
 vim.keymap.set('n', '<leader>d', "\"_d")
 vim.keymap.set('v', '<leader>d', "\"_d")
@@ -51,7 +53,6 @@ vim.keymap.set('n', '<C-s>', "<CMD>w<CR>")
 
 vim.keymap.set('n', '<leader>cr', "<CMD>lua Colors()<CR>")
 
-vim.keymap.set('n', '<C-c>', "<CMD>bdelete<CR>")
 vim.keymap.set('n', '<C-n>', "<CMD>enew<CR>")
 
 vim.keymap.set('n', '<S-h>', "<CMD>bprev<CR>")
