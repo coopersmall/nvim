@@ -4,12 +4,10 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope-live-grep-args.nvim' },
         },
         config = function()
@@ -19,48 +17,41 @@ return require('packer').startup(function(use)
 
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-    use('folke/tokyonight.nvim')
-
-    vim.cmd('colorscheme tokyonight-night')
+    use 'folke/tokyonight.nvim'
 
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
 
-    use('theprimeagen/harpoon')
+    use 'mbbill/undotree'
 
-    use('mbbill/undotree')
-
-    use('tpope/vim-fugitive')
+    use 'tpope/vim-fugitive'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
+            { 'neovim/nvim-lspconfig' },
             {
-                -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            { 'williamboman/mason-lspconfig.nvim' },
 
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         },
     }
 
-    use('rust-lang/rust.vim')
+    use 'rust-lang/rust.vim'
 
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
-    use { 'github/copilot.vim' }
+    use 'github/copilot.vim'
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -96,4 +87,16 @@ return require('packer').startup(function(use)
     }
 
     use "lewis6991/hover.nvim"
+
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
 end)
