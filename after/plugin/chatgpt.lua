@@ -1,8 +1,9 @@
-local gpt = require("chatgpt")
+local chatgpt = require("chatgpt")
+
 vim.keymap.set('n', '<leader><Space>', vim.cmd.ChatGPT)
 
-gpt.setup {
-    api_key_cmd = nil,
+chatgpt.setup {
+    api_key_cmd = "echo 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",
     yank_register = "+",
     edit_with_instructions = {
         diff = false,
@@ -33,8 +34,9 @@ gpt.setup {
             },
         },
         keymaps = {
-            close = { "<Esc>" },
-            yank_last = "<Enter>",
+            close = { "<Esc><Esc>" },
+            accept = { "<Enter>" },
+            yank_last = "<C-c>",
             yank_last_code = "<C-k>",
             scroll_up = "K",
             scroll_down = "J",
