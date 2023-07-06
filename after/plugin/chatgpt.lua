@@ -3,7 +3,6 @@ local chatgpt = require("chatgpt")
 vim.keymap.set('n', '<leader><Space>', vim.cmd.ChatGPT)
 
 chatgpt.setup {
-    api_key_cmd = "echo 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",
     yank_register = "+",
     edit_with_instructions = {
         diff = false,
