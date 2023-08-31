@@ -3,11 +3,19 @@ local lsp = require('lsp-zero')
 lsp.preset({})
 
 lsp.ensure_installed({
+    'gopls',
+    'rust_analyzer',
     'tsserver',
     'eslint',
+    'html',
+    'cssls',
+    'bashls',
+    'sqlls',
     'lua_ls',
-    'rust_analyzer',
-    'gopls',
+    'dockerls',
+    'docker-compose-launguage-server',
+    'html-lsp',
+    'yaml-language-server',
 })
 
 lsp.set_preferences({
@@ -37,6 +45,14 @@ lsp.format_on_save({
         ['rust_analyzer'] = { 'rust' },
         ['tsserver'] = { 'typescript' },
         ['buf'] = { 'proto' },
+        ['eslint'] = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+        ['html'] = { 'html' },
+        ['cssls'] = { 'css', 'scss', 'less' },
+        ['bashls'] = { 'sh' },
+        ['sqlls'] = { 'sql' },
+        ['dockerls'] = { 'dockerfile' },
+        ['html-lsp'] = { 'html' },
+        ['yamlfmt'] = { 'yaml' },
     }
 })
 

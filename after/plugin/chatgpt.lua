@@ -1,6 +1,6 @@
 local chatgpt = require("chatgpt")
 
-vim.keymap.set('n', '<leader><Space>', vim.cmd.ChatGPT)
+vim.keymap.set('n', '<leader>gpt', vim.cmd.ChatGPT)
 
 chatgpt.setup {
     yank_register = "+",
@@ -10,7 +10,7 @@ chatgpt.setup {
             close = "<Esc>",
             accept = "<Enter>",
             toggle_diff = "<C-d>",
-            toggle_settings = "<C-o>",
+            toggle_sentings = "<C-o>",
             cycle_windows = "<Tab>",
             use_output_as_input = "<C-i>",
         },

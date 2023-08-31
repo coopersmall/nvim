@@ -7,11 +7,14 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.1',
         requires = {
             { 'nvim-lua/plenary.nvim' },
             { 'AckslD/nvim-neoclip.lua' },
+            { 'debugloop/telescope-undo.nvim' },
             { 'nvim-telescope/telescope-live-grep-args.nvim' },
+            { 'ahmedkhalf/project.nvim' },
         }
     }
 
@@ -27,8 +30,6 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-
-    use 'mbbill/undotree'
 
     use 'tpope/vim-fugitive'
 
@@ -111,4 +112,10 @@ return require('packer').startup(function(use)
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
     }
+
+    use 'rmagatti/auto-session'
+
+    use 'kevinhwang91/nvim-hlslens'
+
+    use 'ahmedkhalf/project.nvim'
 end)
