@@ -35,7 +35,8 @@ lsp.format_on_save({
         ['lua_ls'] = { 'lua' },
         ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
-        ['tsserver'] = { 'typescript' }
+        ['tsserver'] = { 'typescript' },
+        ['buf'] = { 'proto' },
     }
 })
 

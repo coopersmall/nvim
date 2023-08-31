@@ -8,14 +8,18 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope-live-grep-args.nvim' },
-        },
-        config = function()
-            require("telescope").load_extension("live_grep_args")
-        end
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+            { 'AckslD/nvim-neoclip.lua' },
+            { 'nvim-telescope/telescope-live-grep-args.nvim' },
+        }
     }
 
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+        cond = vim.fn.executable 'make' == 1
+    }
 
     use 'folke/tokyonight.nvim'
 
@@ -27,6 +31,8 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
 
     use 'tpope/vim-fugitive'
+
+    use 'windwp/nvim-autopairs'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -40,16 +46,21 @@ return require('packer').startup(function(use)
                 end,
             },
             { 'williamboman/mason-lspconfig.nvim' },
-
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
         },
     }
 
-    use 'rust-lang/rust.vim'
+    use 'simrat39/rust-tools.nvim'
 
-    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+    use 'mfussenegger/nvim-dap'
+
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "*",
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
 
     use 'github/copilot.vim'
 
@@ -60,16 +71,6 @@ return require('packer').startup(function(use)
     }
 
     use 'famiu/bufdelete.nvim'
-
-    use {
-        "AckslD/nvim-neoclip.lua",
-        requires = {
-            { 'nvim-telescope/telescope.nvim' },
-        },
-        config = function()
-            require('neoclip').setup()
-        end,
-    }
 
     use {
         'tanvirtin/vgit.nvim',
@@ -87,13 +88,27 @@ return require('packer').startup(function(use)
 
     use({
         "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup()
-        end,
         requires = {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim"
         }
     })
+
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {
+            { 'nvim-telescope/telescope.nvim' },
+        },
+    }
+
+    use {
+        'crusj/hierarchy-tree-go.nvim',
+        requires = 'neovim/nvim-lspconfig'
+    }
+
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+    }
 end)
