@@ -11,10 +11,8 @@ return require('packer').startup(function(use)
         tag = '0.1.1',
         requires = {
             { 'nvim-lua/plenary.nvim' },
-            { 'AckslD/nvim-neoclip.lua' },
             { 'debugloop/telescope-undo.nvim' },
             { 'nvim-telescope/telescope-live-grep-args.nvim' },
-            { 'ahmedkhalf/project.nvim' },
         }
     }
 
@@ -24,16 +22,11 @@ return require('packer').startup(function(use)
         cond = vim.fn.executable 'make' == 1
     }
 
-    use 'folke/tokyonight.nvim'
 
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-
-    use 'tpope/vim-fugitive'
-
-    use 'windwp/nvim-autopairs'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -53,9 +46,6 @@ return require('packer').startup(function(use)
         },
     }
 
-    use 'simrat39/rust-tools.nvim'
-
-    use 'mfussenegger/nvim-dap'
 
     use {
         'akinsho/bufferline.nvim',
@@ -63,15 +53,15 @@ return require('packer').startup(function(use)
         requires = 'nvim-tree/nvim-web-devicons'
     }
 
-    use 'github/copilot.vim'
-
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+            opt = true
+        },
         theme = 'tokyonight'
     }
 
-    use 'famiu/bufdelete.nvim'
 
     use {
         'tanvirtin/vgit.nvim',
@@ -85,37 +75,20 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons' },
     }
 
-    use "lewis6991/hover.nvim"
-
-    use({
-        "jackMort/ChatGPT.nvim",
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    })
-
-    use {
-        "AckslD/nvim-neoclip.lua",
-        requires = {
-            { 'nvim-telescope/telescope.nvim' },
-        },
-    }
-
-    use {
-        'crusj/hierarchy-tree-go.nvim',
-        requires = 'neovim/nvim-lspconfig'
-    }
-
     use {
         'phaazon/hop.nvim',
-        branch = 'v2', -- optional but strongly recommended
+        branch = 'v2',
     }
 
-    use 'rmagatti/auto-session'
+    use 'folke/tokyonight.nvim'
 
-    use 'kevinhwang91/nvim-hlslens'
+    use 'mfussenegger/nvim-dap'
+
+    use 'windwp/nvim-autopairs'
+
+    use 'famiu/bufdelete.nvim'
+
+    use 'rmagatti/auto-session'
 
     use 'ahmedkhalf/project.nvim'
 end)

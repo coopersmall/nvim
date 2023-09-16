@@ -1,8 +1,6 @@
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require("telescope").load_extension("live_grep_args"))
-pcall(require('telescope').load_extension('neoclip'))
 pcall(require('telescope').load_extension('undo'))
-pcall(require('telescope').load_extension('projects'))
 
 local builtin = require('telescope.builtin')
 

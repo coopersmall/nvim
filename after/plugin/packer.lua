@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<leader>pc', '<CMD>PackerSync<CR>')
+vim.keymap.set('n', '<leader>mu', '<CMD>PackerSync<CR>')

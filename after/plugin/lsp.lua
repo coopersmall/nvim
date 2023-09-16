@@ -13,9 +13,8 @@ lsp.ensure_installed({
     'sqlls',
     'lua_ls',
     'dockerls',
-    'docker-compose-launguage-server',
-    'html-lsp',
-    'yaml-language-server',
+    'docker_compose_language_service',
+    'yamlls',
 })
 
 lsp.set_preferences({
@@ -51,7 +50,6 @@ lsp.format_on_save({
         ['bashls'] = { 'sh' },
         ['sqlls'] = { 'sql' },
         ['dockerls'] = { 'dockerfile' },
-        ['html-lsp'] = { 'html' },
         ['yamlfmt'] = { 'yaml' },
     }
 })

@@ -74,3 +74,6 @@ vim.keymap.set('n', '<C-O>', 'O<Esc>')
 vim.keymap.set('n', '<leader>h', '<CMD>noh<CR>')
 
 vim.keymap.set('n', '<leader>lsp', '<CMD>LspStop<CR><CMD>LspStart<CR>')
+
+vim.keymap.set('n', 't', '$')
+vim.keymap.set('n', 'T', '0')
