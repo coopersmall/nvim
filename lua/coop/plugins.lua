@@ -80,6 +80,23 @@ return require('packer').startup(function(use)
         branch = 'v2',
     }
 
+    use({
+        'Wansmer/treesj',
+        requires = { 'nvim-treesitter/nvim-treesitter' },
+    })
+
+    use({
+        'smoka7/multicursors.nvim',
+        requires = { 'smoka7/hydra.nvim' },
+    })
+
+    use {
+        'kevinhwang91/nvim-ufo',
+        requires = 'kevinhwang91/promise-async',
+    }
+
+    use 'github/copilot.vim'
+
     use 'folke/tokyonight.nvim'
 
     use 'mfussenegger/nvim-dap'
@@ -91,4 +108,14 @@ return require('packer').startup(function(use)
     use 'rmagatti/auto-session'
 
     use 'ahmedkhalf/project.nvim'
+
+    use 'numToStr/Comment.nvim'
+
+    use 'lukas-reineke/indent-blankline.nvim'
+
+    use 'kylechui/nvim-surround'
+
+    use 'gaoDean/autolist.nvim'
+
+    use 'anuvyklack/pretty-fold.nvim'
 end)
