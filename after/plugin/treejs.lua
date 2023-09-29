@@ -1,5 +1,13 @@
 local treesj = require('treesj')
 
-treesj.setup()
+treesj.setup({
+    use_default_keymaps = false,
+    keys = {},
+})
 
-vim.keymap.set('n', '<leader><Tab>', '<cmd>lua require("treesj").toggle()<cr>', { noremap = true, silent = true })
+vim.keymap.set(
+    'n',
+    '<Tab>',
+    require("treesj").toggle,
+    { noremap = true, silent = true }
+)

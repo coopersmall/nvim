@@ -16,17 +16,9 @@ return require('packer').startup(function(use)
         }
     }
 
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make',
-        cond = vim.fn.executable 'make' == 1
-    }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -46,54 +38,23 @@ return require('packer').startup(function(use)
         },
     }
 
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
-    use {
-        'akinsho/bufferline.nvim',
-        tag = "*",
-        requires = 'nvim-tree/nvim-web-devicons'
-    }
+    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }, theme = 'tokyonight' }
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {
-            'nvim-tree/nvim-web-devicons',
-            opt = true
-        },
-        theme = 'tokyonight'
-    }
+    use { 'tanvirtin/vgit.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
+    use { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
 
-    use {
-        'tanvirtin/vgit.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        }
-    }
+    use { 'phaazon/hop.nvim', branch = 'v2' }
 
-    use {
-        'goolord/alpha-nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' },
-    }
+    use({ 'Wansmer/treesj', requires = { 'nvim-treesitter/nvim-treesitter' } })
 
-    use {
-        'phaazon/hop.nvim',
-        branch = 'v2',
-    }
+    use({ 'smoka7/multicursors.nvim', requires = { 'smoka7/hydra.nvim' } })
 
-    use({
-        'Wansmer/treesj',
-        requires = { 'nvim-treesitter/nvim-treesitter' },
-    })
+    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
-    use({
-        'smoka7/multicursors.nvim',
-        requires = { 'smoka7/hydra.nvim' },
-    })
-
-    use {
-        'kevinhwang91/nvim-ufo',
-        requires = 'kevinhwang91/promise-async',
-    }
+    use { 'lukas-reineke/indent-blankline.nvim', tag = 'v2.0.0' }
 
     use 'github/copilot.vim'
 
@@ -111,11 +72,11 @@ return require('packer').startup(function(use)
 
     use 'numToStr/Comment.nvim'
 
-    use 'lukas-reineke/indent-blankline.nvim'
-
     use 'kylechui/nvim-surround'
 
     use 'gaoDean/autolist.nvim'
 
     use 'anuvyklack/pretty-fold.nvim'
+
+    use 'rcarriga/nvim-notify'
 end)
