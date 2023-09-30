@@ -58,6 +58,7 @@ require('lazy').setup({
         dependencies =
         'nvim-tree/nvim-web-devicons'
     },
+
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
@@ -69,18 +70,22 @@ require('lazy').setup({
         'tanvirtin/vgit.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
+
     {
         'goolord/alpha-nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
+
     {
         'phaazon/hop.nvim',
         branch = 'v2',
     },
+
     {
         'Wansmer/treesj',
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
     },
+
     {
         'smoka7/multicursors.nvim',
         dependencies = { 'smoka7/hydra.nvim' },
