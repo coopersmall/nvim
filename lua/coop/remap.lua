@@ -1,12 +1,19 @@
+--[[
+ ____
+|  _ \ ___ _ __ ___   __ _ _ __
+| |_) / _ \ '_ ` _ \ / _` | '_ \
+|  _ <  __/ | | | | | (_| | |_) |
+|_| \_\___|_| |_| |_|\__,_| .__/
+                          |_|
+
+--]]
+
 vim.g.mapleader = " "
 vim.keymap.set("n", "<C-o>", vim.cmd.Ex)
 vim.keymap.set("n", "<C-p>", "<CMD>visual<CR>")
 
 vim.keymap.set("n", '<leader>pv', ':Ex<CR>')
 vim.keymap.set("n", '<leader>u', ':UndotreeShow<CR>')
-
--- vim.keymap.set("v", 'J', ":m '>+1<CR>gv=gv")
--- vim.keymap.set("v", 'K', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", 'Y', 'yg$')
 vim.keymap.set("n", 'C-j', 'mxj`z')

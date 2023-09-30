@@ -71,7 +71,6 @@ lsp.setup()
 
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
     mapping = {
@@ -95,3 +94,5 @@ cmp.setup({
 vim.diagnostic.config({
     virtual_text = true
 })
+
+vim.lsp.set_log_level('warn')

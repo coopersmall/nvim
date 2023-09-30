@@ -1,3 +1,12 @@
+--[[
+ ____       _
+/ ___|  ___| |_
+\___ \ / _ \ __|
+ ___) |  __/ |_
+|____/ \___|\__|
+
+]]
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 

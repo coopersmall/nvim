@@ -1,5 +1,16 @@
---/ This file can be loaded by calling `lua require('plugins')` from your init.vim
+--[[
+ ____  _             _
+|  _ \| |_   _  __ _(_)_ __  ___
+| |_) | | | | |/ _` | | '_ \/ __|
+|  __/| | |_| | (_| | | | | \__ \
+|_|   |_|\__,_|\__, |_|_| |_|___/
+               |___/
 
+Plugins are managed using lazy.nvim. This file is used to install plugins and
+configure them. For more information on lazy.nvim, see: github.com/folke/lazy.nvim
+]]
+
+-- Install lazy.nvim if it doesn't exist
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -7,126 +18,207 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
         lazypath,
     })
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Install plugins
 require('lazy').setup({
+
+    -- Theme
+    'folke/tokyonight.nvim',
+
+    -- Core lua functions
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
-        dependencies = {
-            { 'nvim-lua/plenary.nvim' },
-            { 'debugloop/telescope-undo.nvim' },
-            { 'nvim-telescope/telescope-live-grep-args.nvim' },
-        }
+        'nvim-lua/plenary.nvim',
+        lazy = true,
     },
 
+    -- Icons
     {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-        cond = vim.fn.executable 'make' == 1,
+        'nvim-tree/nvim-web-devicons',
+        lazy = true,
     },
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-    },
+    -- Treesitter is used for syntax highlighting
+    'nvim-treesitter/nvim-treesitter',
 
+    -- Mason is used for managing LSPs
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            { 'neovim/nvim-lspconfig' },
-            {
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' },
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'L3MON4D3/LuaSnip' },
+        'williamboman/mason.nvim',
+        lazy = true,
+        cmd = {
+            'MasonInstall',
+            'MasonUpdate',
+            'MasonUninstall',
         },
     },
 
+    -- Mason LSP Configurations
+    'williamboman/mason-lspconfig.nvim',
+
+    -- LSP Configurations
+    'neovim/nvim-lspconfig', -- Dependency
+
+    -- LSP Diagnostics
     {
-        'akinsho/bufferline.nvim',
-        dependencies =
-        'nvim-tree/nvim-web-devicons'
+        'hrsh7th/nvim-cmp', -- Dependency
+        event = 'InsertEnter',
     },
 
+    -- LSP Completion
+    'hrsh7th/cmp-nvim-lsp', -- Dependency
+
+    -- LSP Snippets
+    'L3MON4D3/LuaSnip', -- Dependency
+
+    -- LSP Zero is used to configure LSPs
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-        theme =
-        'tokyonight'
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
     },
 
+    -- Telescope is used for fuzzy finding
     {
-        'tanvirtin/vgit.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        'nvim-telescope/telescope.nvim',
+        lazy = true,
+        cmd = {
+            'Telescope',
+            'TelescopeOldfiles',
+            'TelescopeBuffers',
+            'TelescopeCurrentBufferFuzzyFind',
+            'TelescopeFindFiles',
+            'TelescopeGitFiles',
+            'TelescopeGrepString',
+            'TelescopeLspReferences',
+            'TelescopeUndo',
+        },
     },
 
+    -- Telescope grep across files
     {
-        'goolord/alpha-nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        'nvim-telescope/telescope-live-grep-args.nvim',
+        lazy = true,
+        cmd = {
+            'TelescopeLiveGrepArgs',
+        },
     },
 
-    {
-        'phaazon/hop.nvim',
-        branch = 'v2',
-    },
+    -- Telescope fuzzy finder extension
+    'nvim-telescope/telescope-fzf-native.nvim',
 
-    {
-        'Wansmer/treesj',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    },
+    -- Custom menus
+    'smoka7/hydra.nvim', -- Dependency
 
+    -- Interact with multiple lines
     {
         'smoka7/multicursors.nvim',
-        dependencies = { 'smoka7/hydra.nvim' },
+        lazy = true,
+        cmd = {
+            'MCunderCursor',
+            'MCpattern',
+        }
     },
 
+    -- Async functions
+    'kevinhwang91/promise-async', -- Dependency
+
+    -- Improve folds
     {
         'kevinhwang91/nvim-ufo',
-        dependencies = 'kevinhwang91/promise-async',
+        lazy = true,
+        cmd = {
+            'UfoToggle',
+            'UfoFold',
+            'UfoUnfold',
+            'UfoToggleFold',
+            'UfoToggleFoldRecursive',
+        },
     },
 
+    -- Improve indentation
     {
         'lukas-reineke/indent-blankline.nvim',
         tag = 'v2.0.0',
     },
 
+    -- Move quickly within a buffer
     {
-        'folke/tokyonight.nvim',
-        lazy = false,
+        'phaazon/hop.nvim',
+        lazy = true,
+        cmd = {
+
+        },
     },
 
+    -- Start page
+    'goolord/alpha-nvim',
+
+    -- Show buffers at the top
+    'akinsho/bufferline.nvim',
+
+    -- Show statusline at the bottom
+    'nvim-lualine/lualine.nvim',
+
+    -- Autocompletion
     'github/copilot.vim',
 
+    -- Debugger
     'mfussenegger/nvim-dap',
 
+    -- Expand and collapse code
+    {
+        'Wansmer/treesj',
+        lazy = true,
+        cmd = {
+            'TreesJToggle',
+        },
+    },
+
+    -- Add closing to pairs
     'windwp/nvim-autopairs',
 
+    -- Delete buffers
     'famiu/bufdelete.nvim',
 
+    -- Session management
     'rmagatti/auto-session',
 
-    'ahmedkhalf/project.nvim',
+    -- Interact with git
+    {
+        'tanvirtin/vgit.nvim',
+        lazy = true,
+        cmd = {
+            'VGit',
+        },
+    },
 
-    'numToStr/Comment.nvim',
+    -- Comment out code
+    {
+        'numToStr/Comment.nvim',
+        lazy = true,
+        cmd = {
+            'CommentToggle',
+            'CommentLine',
+            'CommentBlock',
+        },
+    },
 
+    -- Surround text with pairs
     'kylechui/nvim-surround',
 
+    -- Automatically format lists
     'gaoDean/autolist.nvim',
 
+    -- Improve fold styling
     'anuvyklack/pretty-fold.nvim',
 
+    -- Improve notificaitons
     'rcarriga/nvim-notify',
 
+    -- LSP for Neovim
     'folke/neodev.nvim',
+
 })
