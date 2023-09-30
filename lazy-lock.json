@@ -10,6 +10,7 @@
   "copilot.vim": { "branch": "release", "commit": "998cf5ab1b85e844c7e8edb864a997e590df7182" },
   "hop.nvim": { "branch": "master", "commit": "1a1eceafe54b5081eae4cb91c723abd1d450f34b" },
   "hydra.nvim": { "branch": "master", "commit": "ceb1fb7e3b4916676674e8a4253deea5a19ab01f" },
+  "impatient.nvim": { "branch": "main", "commit": "47302af74be7b79f002773011f0d8e85679a7618" },
   "indent-blankline.nvim": { "branch": "master", "commit": "74d509f2f2fbf806964294b899ae52f016de3d88" },
   "lazy.nvim": { "branch": "main", "commit": "59335c5b9d116f5d3948f833288a89e2a829a005" },
   "lsp-zero.nvim": { "branch": "v2.x", "commit": "abd2208cf967b911402d32262042b71bdff06c26" },

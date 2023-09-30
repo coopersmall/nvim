@@ -102,8 +102,6 @@ require('lazy').setup({
         }
     },
 
-
-
     -- Interact with multiple lines
     {
         'smoka7/multicursors.nvim',
@@ -151,6 +149,9 @@ require('lazy').setup({
             'HintDirection',
         },
     },
+
+    -- Faster startup
+    'lewis6991/impatient.nvim',
 
     -- Start page
     'goolord/alpha-nvim',
@@ -219,5 +220,4 @@ require('lazy').setup({
 
     -- LSP for Neovim
     'folke/neodev.nvim',
-
 })
