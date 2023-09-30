@@ -8,6 +8,7 @@
 
 Plugins are managed using lazy.nvim. This file is used to install plugins and
 configure them. For more information on lazy.nvim, see: github.com/folke/lazy.nvim
+
 ]]
 
 -- Install lazy.nvim if it doesn't exist
@@ -45,39 +46,29 @@ require('lazy').setup({
     -- Treesitter is used for syntax highlighting
     'nvim-treesitter/nvim-treesitter',
 
-    -- Mason is used for managing LSPs
-    {
-        'williamboman/mason.nvim',
-        lazy = true,
-        cmd = {
-            'MasonInstall',
-            'MasonUpdate',
-            'MasonUninstall',
-        },
-    },
-
-    -- Mason LSP Configurations
-    'williamboman/mason-lspconfig.nvim',
-
-    -- LSP Configurations
-    'neovim/nvim-lspconfig', -- Dependency
-
-    -- LSP Diagnostics
-    {
-        'hrsh7th/nvim-cmp', -- Dependency
-        event = 'InsertEnter',
-    },
-
-    -- LSP Completion
-    'hrsh7th/cmp-nvim-lsp', -- Dependency
-
-    -- LSP Snippets
-    'L3MON4D3/LuaSnip', -- Dependency
-
     -- LSP Zero is used to configure LSPs
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
+        dependencies = {
+            {
+                'williamboman/mason.nvim',
+                lazy = true,
+                cmd = {
+                    'MasonInstall',
+                    'MasonUpdate',
+                    'MasonUninstall',
+                },
+            },
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
+            {
+                'hrsh7th/nvim-cmp',
+                event = 'InsertEnter',
+            },
+            'hrsh7th/cmp-nvim-lsp',
+            'L3MON4D3/LuaSnip',
+        },
     },
 
     -- Telescope is used for fuzzy finding
@@ -95,22 +86,23 @@ require('lazy').setup({
             'TelescopeLspReferences',
             'TelescopeUndo',
         },
+        dependencies = {
+            -- Telescope grep across files
+            {
+                'nvim-telescope/telescope-live-grep-args.nvim',
+                lazy = true,
+                cmd = {
+                    'TelescopeLiveGrepArgs',
+                },
+            },
+
+            -- Telescope fuzzy finder extension
+            'nvim-telescope/telescope-fzf-native.nvim',
+
+        }
     },
 
-    -- Telescope grep across files
-    {
-        'nvim-telescope/telescope-live-grep-args.nvim',
-        lazy = true,
-        cmd = {
-            'TelescopeLiveGrepArgs',
-        },
-    },
 
-    -- Telescope fuzzy finder extension
-    'nvim-telescope/telescope-fzf-native.nvim',
-
-    -- Custom menus
-    'smoka7/hydra.nvim', -- Dependency
 
     -- Interact with multiple lines
     {
@@ -119,11 +111,13 @@ require('lazy').setup({
         cmd = {
             'MCunderCursor',
             'MCpattern',
-        }
+        },
+        dependencies = {
+            -- Custom menus
+            'smoka7/hydra.nvim',
+        },
     },
 
-    -- Async functions
-    'kevinhwang91/promise-async', -- Dependency
 
     -- Improve folds
     {
@@ -135,6 +129,10 @@ require('lazy').setup({
             'UfoUnfold',
             'UfoToggleFold',
             'UfoToggleFoldRecursive',
+        },
+        dependencies = {
+            -- Async functions
+            'kevinhwang91/promise-async',
         },
     },
 
@@ -149,7 +147,8 @@ require('lazy').setup({
         'phaazon/hop.nvim',
         lazy = true,
         cmd = {
-
+            'Hint',
+            'HintDirection',
         },
     },
 
