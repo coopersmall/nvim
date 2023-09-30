@@ -6,4 +6,4 @@ function Colors(color)
     vim.api.nvim_set_hl(0, "normalFloat", { bg = "none" })
 end
 
-Colors()
+vim.cmd([[autocmd Colorscheme * lua Colors()]])

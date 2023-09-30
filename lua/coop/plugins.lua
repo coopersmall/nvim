@@ -1,33 +1,48 @@
 --/ This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-
-    use {
+require('lazy').setup({
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.1',
-        requires = {
+        dependencies = {
             { 'nvim-lua/plenary.nvim' },
             { 'debugloop/telescope-undo.nvim' },
             { 'nvim-telescope/telescope-live-grep-args.nvim' },
         }
-    }
+    },
 
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = vim.fn.executable 'make' == 1,
+    },
 
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+    },
 
-    use {
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
-        requires = {
+        dependencies = {
             { 'neovim/nvim-lspconfig' },
             {
                 'williamboman/mason.nvim',
-                run = function()
+                build = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
@@ -36,47 +51,77 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
         },
-    }
+    },
 
-    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+    {
+        'akinsho/bufferline.nvim',
+        dependencies =
+        'nvim-tree/nvim-web-devicons'
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+        theme =
+        'tokyonight'
+    },
 
-    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }, theme = 'tokyonight' }
+    {
+        'tanvirtin/vgit.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
+    {
+        'goolord/alpha-nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
+    {
+        'phaazon/hop.nvim',
+        branch = 'v2',
+    },
+    {
+        'Wansmer/treesj',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    },
+    {
+        'smoka7/multicursors.nvim',
+        dependencies = { 'smoka7/hydra.nvim' },
+    },
 
-    use { 'tanvirtin/vgit.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+    {
+        'kevinhwang91/nvim-ufo',
+        dependencies = 'kevinhwang91/promise-async',
+    },
 
-    use { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        tag = 'v2.0.0',
+    },
 
-    use { 'phaazon/hop.nvim', branch = 'v2' }
+    {
+        'folke/tokyonight.nvim',
+        lazy = false,
+    },
 
-    use({ 'Wansmer/treesj', requires = { 'nvim-treesitter/nvim-treesitter' } })
+    'github/copilot.vim',
 
-    use({ 'smoka7/multicursors.nvim', requires = { 'smoka7/hydra.nvim' } })
+    'mfussenegger/nvim-dap',
 
-    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+    'windwp/nvim-autopairs',
 
-    use { 'lukas-reineke/indent-blankline.nvim', tag = 'v2.0.0' }
+    'famiu/bufdelete.nvim',
 
-    use 'github/copilot.vim'
+    'rmagatti/auto-session',
 
-    use 'folke/tokyonight.nvim'
+    'ahmedkhalf/project.nvim',
 
-    use 'mfussenegger/nvim-dap'
+    'numToStr/Comment.nvim',
 
-    use 'windwp/nvim-autopairs'
+    'kylechui/nvim-surround',
 
-    use 'famiu/bufdelete.nvim'
+    'gaoDean/autolist.nvim',
 
-    use 'rmagatti/auto-session'
+    'anuvyklack/pretty-fold.nvim',
 
-    use 'ahmedkhalf/project.nvim'
+    'rcarriga/nvim-notify',
 
-    use 'numToStr/Comment.nvim'
-
-    use 'kylechui/nvim-surround'
-
-    use 'gaoDean/autolist.nvim'
-
-    use 'anuvyklack/pretty-fold.nvim'
-
-    use 'rcarriga/nvim-notify'
-end)
+    'folke/neodev.nvim',
+})
