@@ -206,11 +206,24 @@ require('lazy').setup({
         },
     },
 
+    -- Useful Go Stuff
+    {
+        "olexsmir/gopher.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        lazy = true,
+        cmd = {
+            'GoTagAdd',
+            'GoTagRm',
+            'GoIfErr',
+            'GoImpl',
+        }
+    },
+
     -- Surround text with pairs
     'kylechui/nvim-surround',
-
-    -- Automatically format lists
-    'gaoDean/autolist.nvim',
 
     -- Improve fold styling
     'anuvyklack/pretty-fold.nvim',
@@ -220,4 +233,7 @@ require('lazy').setup({
 
     -- LSP for Neovim
     'folke/neodev.nvim',
+
+    -- Markers
+    'chentoast/marks.nvim',
 })

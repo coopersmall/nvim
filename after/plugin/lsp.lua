@@ -42,9 +42,8 @@ lsp.format_on_save({
         ['lua_ls'] = { 'lua' },
         ['gopls'] = { 'go' },
         ['rust_analyzer'] = { 'rust' },
-        ['tsserver'] = { 'typescript' },
+        ['tsserver'] = { 'typescript', 'js' },
         ['buf'] = { 'proto' },
-        ['eslint'] = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
         ['html'] = { 'html' },
         ['cssls'] = { 'css', 'scss', 'less' },
         ['bashls'] = { 'sh' },
@@ -54,7 +53,8 @@ lsp.format_on_save({
     }
 })
 
-require('lspconfig').lua_ls.setup({
+local nvim_lsp = require('lspconfig')
+nvim_lsp.lua_ls.setup({
     on_attach = function(client, bufnr)
         ih.on_attach(client, bufnr)
     end,
@@ -66,6 +66,14 @@ require('lspconfig').lua_ls.setup({
         },
     },
 })
+
+-- Specify an autocommand to switch to helm_ls for Helm YAML files
+vim.cmd([[
+  augroup HelmLS
+      autocmd FileType tpl setlocal filetype=helm
+      autocmd FileType yaml setlocal filetype=helm
+  augroup END
+]])
 
 lsp.setup()
 
